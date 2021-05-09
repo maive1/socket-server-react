@@ -52,6 +52,10 @@
         const msj = textInput.value;
         socket.emit("mensaje-cliente", { msj });
       });
+
+      socket.on("connection", () => {
+        console.log("conectado");
+      });
       socket.on("mensaje-from-server", (data) => {
         mensajes.innerHTML += `<li>${data.msj}</li>`;
       });
